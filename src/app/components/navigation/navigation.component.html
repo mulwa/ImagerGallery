@@ -1,0 +1,10 @@
+<nav>
+    <div class="nav-wrapper">     
+      <ul id="nav-mobile" class="right hide-on-med-and-down">       
+        <li *ngIf="(user|async)?.uid"><a [routerLink]="['/gallery']">Gallery</a></li>
+        <li *ngIf="(user|async)?.uid"><a [routerLink]="['/upload']">Upload Image</a></li>        
+        <li *ngIf="!(user|async)?.uid"><a [routerLink]="['/login']">Login</a></li>
+        <li *ngIf="(user|async)?.uid"><a (click)="logOut()">LogOut</a></li>
+      </ul>
+    </div>
+  </nav>
