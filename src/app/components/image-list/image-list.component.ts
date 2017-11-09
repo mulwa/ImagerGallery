@@ -23,6 +23,9 @@ export class ImageListComponent implements OnInit,OnChanges {
   ngOnChanges() {
     this.images = this.imagervice.getImages();
   }
+  remove(key:string){
+    console.log("removing......."+key);
+  }
 
 
 }
