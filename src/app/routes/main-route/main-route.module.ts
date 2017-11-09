@@ -11,8 +11,8 @@ import { MainRouteRoutingModule } from './main-route-routing.module';
 
 const mainRoutes:Routes = [
   {path:'login',component :LoginComponent},
-  { path:'gallery',component :ImageListComponent,canActivate:[AuthenticationGuard]},
-  { path: 'upload', component: ImageuploadsComponent,canActivate:[AuthenticationGuard]},
+  { path:'gallery',component :ImageListComponent},
+  { path: 'upload', component: ImageuploadsComponent},
   { path: 'imageDetais/:id', component:ImageDetailsComponent,canActivate:[AuthenticationGuard]},
   { path: '', redirectTo: '/login',pathMatch: 'full'}
 
@@ -24,9 +24,7 @@ const mainRoutes:Routes = [
   imports: [
     CommonModule,
     MainRouteRoutingModule,
-    RouterModule.forRoot(mainRoutes,{
-      enableTracing:true
-    })
+    RouterModule.forRoot(mainRoutes)
 
   ],
   declarations: [

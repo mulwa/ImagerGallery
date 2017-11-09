@@ -1,28 +1,41 @@
-<div class="card">
-  <div class="card-content">
-    <div class="row cols12">
-      <form class="col s12" >
-      <div class="file-field input-field">
-        <div class="btn">
-          <span>File</span>
-          <input type="file" (change)="handleFiles($event)" multiple>
-        </div>
-        <div class="file-path-wrapper">
-          <input class="file-path" type="text"  placeholder="Upload one or more files">
-        </div>
-    </div> 
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="tag" type="text" class="validate">
-            <label for="tag">image tag</label>
-          </div>
-        </div> 
-      </form>
-    </div>   
+<div class="row">
+  <div class="col s12 m10 l10">
+    image dispaly
   </div>
-  <div class="card-action">
-    <button class="btn waves-effect waves-light" (click)="uploadFiles()">Upload
-    <i class="material-icons right">send</i>
-  </button>
+  <div class="col s12 m2 l2">    
+    <div class="card">
+      <div class="card-content">
+        <div *ngIf="upload">
+          <div class="progress">            
+              <div class="progress-bar" [ngStyle]="{'width': upload?.progress + '%'}"></div>             
+            </div>
+             Progress:{{upload.progress}}% Complete
+        </div>        
+        <div class="row col s12">
+          <form class="col s12" >
+          <div class="file-field input-field">
+            <div class="btn orange">
+              <span>File</span>
+              <input type="file" (change)="handleFiles($event)" multiple>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path" type="text"  placeholder="Upload one or more files">
+            </div>
+        </div> 
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="tag" type="text" class="validate">
+                <label for="tag">image tag</label>
+              </div>
+            </div>        
+          </form>
+        </div>   
+      </div>
+      <div class="card-action">
+        <button class="btn waves-effect waves-light pink" (click)="uploadFiles()">Upload
+        <i class="material-icons right">send</i>
+      </button> 
+      </div>  
+    </div>
   </div>
 </div>

@@ -8,14 +8,14 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class UploadServiceService {
-  private basePath = '/uploads';
+  private basePath = '/Uploads';
   private uploads :AngularFireList<ImageGallery>;
 
   constructor(private ngFire:AngularFireModule, private db: AngularFireDatabase) { }
 
   uploadFile(upload:Upload){
     const storageRef = firebase.storage().ref();
-    const uploadTask = storageRef.child(`${this.basePath}/${upload}`).put(upload.file);
+    const uploadTask = storageRef.child(`${this.basePath}/${upload.file.name}`).put(upload.file);
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot)=>{
       upload.progress = (uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes) * 100;
@@ -26,12 +26,17 @@ export class UploadServiceService {
     },():any =>{
       upload.url = uploadTask.snapshot.downloadURL;
       upload.name = upload.file.name;
+      console.log(upload);
       this.saveData(upload);
     });    
   }
   private saveData(upload:Upload){
-    this.db.list(`${this.basePath}/`).push(upload);
-    console.log('file saved:!'+upload.url);
+    this.db.list(`${this.basePath}/`).push(upload).then((sucesss)=>{
+       console.log('file saved:!'+upload.url);
+    },(error) =>{
+       console.log(error);
+    });
+   
   }
 
 }

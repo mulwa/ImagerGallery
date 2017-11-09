@@ -1,3 +1,4 @@
+import { ImageListService } from './services/image-list.service';
 import { UploadServiceService } from './services/upload-service.service';
 import { AuthenticationService } from './services/authentication.service';
 import { MainRouteModule } from './routes/main-route/main-route.module';
@@ -42,7 +43,8 @@ import { LoginComponent } from './components/login/login.component';
   providers: [
     AuthenticationGuard,
     AuthenticationService,
-    UploadServiceService
+    UploadServiceService,
+    ImageListService    
     ],
   bootstrap: [AppComponent]
 })

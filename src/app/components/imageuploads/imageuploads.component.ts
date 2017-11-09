@@ -28,6 +28,7 @@ export class ImageuploadsComponent{
       // console.log(filesToUpload[index]);
       this.upload = new Upload(filesToUpload[index]);
       this.uploadService.uploadFile(this.upload);
+
     });
   }
 
