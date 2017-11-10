@@ -1,3 +1,4 @@
+import { MapService } from './services/map.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ImageListService } from './services/image-list.service';
 import { UploadServiceService } from './services/upload-service.service';
@@ -7,7 +8,7 @@ import { AuthenticationGuard } from './services/authentication.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
-import { MatSidenavModule } from '@angular/material';
+// import { MatSidenavModule } from '@angular/material';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
@@ -24,6 +25,8 @@ import { environment} from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
 import 'hammerjs';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import {AgmCoreModule} from '@agm/core';
+import { MapComponent } from './components/map/map.component';
 
 @NgModule({
   declarations: [
@@ -34,24 +37,28 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
     ImageDetailsComponent,
     ImageListComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
-    MatSidenavModule,
+    HttpModule,    
     MaterializeModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    MainRouteModule
+    MainRouteModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.googleMapsKey
+    })
   ],
   providers: [
     AuthenticationGuard,
     AuthenticationService,
     UploadServiceService,
-    ImageListService    
+    ImageListService,
+    MapService  
     ],
   bootstrap: [AppComponent]
 })

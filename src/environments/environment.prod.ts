@@ -8,5 +8,6 @@ export const environment = {
     projectId: "photo-gallery-3ed69",
     storageBucket: "photo-gallery-3ed69.appspot.com",
     messagingSenderId: "508012027106"
-  }
+  },
+  googleMapsKey: 'AIzaSyAGkVI0d4x8eCQpEeK46UERpJIsYRKjWak',
 };

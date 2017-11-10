@@ -1,3 +1,4 @@
+import { MapComponent } from './../../components/map/map.component';
 import { SignUpComponent } from './../../components/sign-up/sign-up.component';
 import { AuthenticationGuard } from './../../services/authentication.guard';
 import { ImageDetailsComponent } from './../../components/image-details/image-details.component';
@@ -14,11 +15,12 @@ import { MainRouteRoutingModule } from './main-route-routing.module';
 
 
 const mainRoutes:Routes = [
-  {path:'login',component :LoginComponent,canActivate:[AuthenticationGuard]},
+  {path:'login',component :LoginComponent},
   { path:'gallery',component :ImageListComponent,canActivate:[AuthenticationGuard]},
   { path: 'upload', component: ImageuploadsComponent,canActivate:[AuthenticationGuard]},
   { path: 'imageDetais/:id', component:ImageDetailsComponent,canActivate:[AuthenticationGuard]},
   { path: 'signup',component:SignUpComponent},
+  { path: 'map', component:MapComponent},
   { path: '', redirectTo: '/login',pathMatch: 'full'}
 
 ];
@@ -30,7 +32,6 @@ const mainRoutes:Routes = [
     CommonModule,
     MainRouteRoutingModule,
     RouterModule.forRoot(mainRoutes)
-
   ],
   declarations: [
 
