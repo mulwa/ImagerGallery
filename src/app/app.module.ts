@@ -1,3 +1,4 @@
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ImageListService } from './services/image-list.service';
 import { UploadServiceService } from './services/upload-service.service';
 import { AuthenticationService } from './services/authentication.service';
@@ -6,6 +7,7 @@ import { AuthenticationGuard } from './services/authentication.guard';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
+import { MatSidenavModule } from '@angular/material';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
@@ -20,6 +22,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment} from '../environments/environment';
 import { LoginComponent } from './components/login/login.component';
+import 'hammerjs';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -29,11 +33,14 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     ImageDetailsComponent,
     ImageListComponent,
-    LoginComponent
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpModule,
+    MatSidenavModule,
     MaterializeModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),

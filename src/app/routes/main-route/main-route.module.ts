@@ -1,3 +1,4 @@
+import { SignUpComponent } from './../../components/sign-up/sign-up.component';
 import { AuthenticationGuard } from './../../services/authentication.guard';
 import { ImageDetailsComponent } from './../../components/image-details/image-details.component';
 import { ImageuploadsComponent } from './../../components/imageuploads/imageuploads.component';
@@ -8,12 +9,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router';
 
 import { MainRouteRoutingModule } from './main-route-routing.module';
+// import { t} from './../components/sign-up/sign-up.component';
+
+
 
 const mainRoutes:Routes = [
-  {path:'login',component :LoginComponent},
-  { path:'gallery',component :ImageListComponent},
-  { path: 'upload', component: ImageuploadsComponent},
+  {path:'login',component :LoginComponent,canActivate:[AuthenticationGuard]},
+  { path:'gallery',component :ImageListComponent,canActivate:[AuthenticationGuard]},
+  { path: 'upload', component: ImageuploadsComponent,canActivate:[AuthenticationGuard]},
   { path: 'imageDetais/:id', component:ImageDetailsComponent,canActivate:[AuthenticationGuard]},
+  { path: 'signup',component:SignUpComponent},
   { path: '', redirectTo: '/login',pathMatch: 'full'}
 
 ];
