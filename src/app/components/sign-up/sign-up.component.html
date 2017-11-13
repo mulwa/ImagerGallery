@@ -1,3 +1,23 @@
-<p>
-  sign-up works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col s12 m4 l4">
+      <app-nested (myeventEmiter)="receiveEvent($event)"></app-nested>
+    </div>
+    <div class="col s12 m8 l8">
+      <div class="card">
+      <div class="card-content">        
+        <form action="">
+          <div class="input-field">
+            <input type="text" name="" id="">
+            <label for="">Name</label>
+          </div>
+        </form>        
+      </div>   
+      <div class="card-actions">
+        {{message}}
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+

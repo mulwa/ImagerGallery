@@ -9,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule} from '@angular/http';
 // import { MatSidenavModule } from '@angular/material';
-
+// import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterializeModule } from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -27,6 +27,12 @@ import 'hammerjs';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {AgmCoreModule} from '@agm/core';
 import { MapComponent } from './components/map/map.component';
+import { NestedComponent } from './components/nested/nested.component';
+
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -38,12 +44,17 @@ import { MapComponent } from './components/map/map.component';
     ImageListComponent,
     LoginComponent,
     SignUpComponent,
-    MapComponent
+    MapComponent,
+    NestedComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,    
+    HttpModule, 
+    // MatButtonModule,
+    // MatCheckboxModule,
+    // MatFormFieldModule, 
+    // MatSelectModule, 
     MaterializeModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),

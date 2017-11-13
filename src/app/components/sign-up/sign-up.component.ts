@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
+  // private message:any;
+  private message:any;
 
-  constructor() { }
+  constructor() { 
+    // this.message = "Message from parent to child";
+  }
 
   ngOnInit() {
+  }
+  receiveEvent($event){
+    this.message = $event;
+    
+    
   }
 
 }

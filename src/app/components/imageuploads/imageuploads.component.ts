@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 export class ImageuploadsComponent{
   files:FileList;
   upload:Upload;
+  uploadMode:boolean = false;
 
   constructor(private uploadService: UploadServiceService) { }
 
@@ -30,6 +31,10 @@ export class ImageuploadsComponent{
       this.uploadService.uploadFile(this.upload);
 
     });
+  }
+
+  addImage(){
+    this.uploadMode = true;
   }
 
   
